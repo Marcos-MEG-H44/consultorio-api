@@ -1,81 +1,169 @@
-# API Consultorio Médico
+# API1 - Consultorio Médico
 
-Proyecto realizado con Spring Boot para la gestión de pacientes, médicos y turnos.
+API REST desarrollada con Spring Boot para la gestión de pacientes, médicos y turnos.
+
+Proyecto realizado como práctica de desarrollo Backend utilizando Java + Spring Boot + SQL Server + JWT + JPA.
 
 ---
 
 # Tecnologías utilizadas
 
-* Java 21
-* Spring Boot
-* Spring Security
-* JWT
-* Spring Data JPA
-* SQL Server
-* Maven
-* Lombok
+- Java 21
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Spring Data JPA
+- SQL Server
+- Maven
+- Lombok
+- Thunder Client / Postman
+- Git + GitHub
 
 ---
 
-# Funcionalidades
+# Estructura del proyecto
+
+src/main/java/com/tuapp/consultorio
+
+controller/
+
+service/
+
+repository/
+
+entity/
+
+dto/
+
+mapper/
+
+security/
+
+config/
+
+---
+
+# Funcionalidades implementadas
 
 ## Pacientes
 
-* Crear pacientes
-* Listar pacientes
-* Actualizar pacientes
-* Eliminar pacientes
-* Buscar pacientes
+- Crear pacientes
+- Listar pacientes
+- Actualizar pacientes
+- Eliminar pacientes
+- Buscar pacientes
+
+---
 
 ## Médicos
 
-* CRUD completo
-* Especialidades médicas
+- CRUD completo
+- Especialidades médicas
+- Actualización y eliminación
+
+---
 
 ## Turnos
 
-* Gestión de turnos
-* Relación entre pacientes y médicos
+- Gestión de turnos médicos
+- Asociación entre pacientes y médicos
+- Administración de consultas
+
+---
 
 ## Seguridad
 
-* Registro de usuarios
-* Login
-* JWT Authentication
-* Endpoints protegidos
+Implementada mediante:
+
+- Registro de usuarios
+- Login
+- JWT Authentication
+- Endpoints protegidos
+- Spring Security
+
+Endpoints públicos:
+
+POST /auth/register
+
+POST /auth/login
+
+---
+
+# Arquitectura implementada
+
+El proyecto utiliza:
+
+✔ Controllers
+
+✔ Services
+
+✔ DTO Request / Response
+
+✔ Mapper
+
+✔ Repository
+
+✔ Entities JPA
+
+✔ Validaciones
+
+✔ Seguridad JWT
 
 ---
 
 # Relaciones implementadas
 
-* OneToMany
-* ManyToOne
-* ManyToMany
+✔ OneToMany
+
+✔ ManyToOne
+
+✔ ManyToMany
+
+Relaciones entre:
+
+Paciente ↔ Turno
+
+Medico ↔ Turno
+
+Usuarios ↔ Seguridad
 
 ---
 
-# Testing
+# Entidades principales
 
-* Test de Service
-* Test de Controller
+## Paciente
 
----
-
-# Base de Datos
-
-El script SQL se encuentra en:
-
-database/script_consultorio.sql
+- id
+- nombre
+- apellido
+- dni
+- telefono
 
 ---
 
-# Cómo ejecutar el proyecto
+## Médico
 
-## Ejecutar API
+- id
+- nombre
+- especialidad
+- matricula
 
-```bash
-.\mvnw spring-boot:run
-```
+---
+
+## Turno
+
+- id
+- fecha
+- paciente
+- medico
+
+---
+
+## Usuario
+
+- username
+- password
+- role
 
 ---
 
@@ -107,6 +195,12 @@ GET /medicos
 
 POST /medicos
 
+PUT /medicos/{id}
+
+DELETE /medicos/{id}
+
+GET /medicos/buscar?especialidad=...
+
 ---
 
 ## Turnos
@@ -115,8 +209,15 @@ GET /turnos
 
 POST /turnos
 
+PUT /turnos/{id}
+
+DELETE /turnos/{id}
+
 ---
 
-# Autor
+# Base de Datos
 
-Marcos Godoy
+Script SQL disponible en:
+
+```txt
+database/script_consultorio.sql
